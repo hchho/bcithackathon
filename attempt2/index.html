@@ -16,7 +16,8 @@
 <body>
 <div class="row">
     <!-- Side navigation -->
-    <div class="sidenav col-xs-2 tab">
+    <div class="tab col-xs-2">
+        <button class="tablinks" onclick="openCourse(event, 'TERM')">Term</button>
         <button class="tablinks" onclick="openCourse(event, 'COMP1111')">COMP1111</button>
         <button class="tablinks" onclick="openCourse(event, 'COMP1113')">COMP1113</button>
         <button class="tablinks" onclick="openCourse(event, 'COMP1510')">COMP1510</button>
@@ -25,9 +26,37 @@
         <button class="tablinks" onclick="openCourse(event, 'BUSA2720')">BUSA2720</button>
     </div>
 
+    <div id="TERM" class="tabcontent">
+        <button class="tablinks" onclick="openCourse(event, 'TERM1')">TERM1</button>
+        <button class="tablinks" onclick="openCourse(event, 'TERM2')">TERM2</button>
+        <button class="tablinks" onclick="openCourse(event, 'TERM3')">TERM3</button>
+        <button class="tablinks" onclick="openCourse(event, 'TERM4')">TERM4</button>
+    </div>
+
     <div id="COMP1111" class="tabcontent">
-        <h3>COMP 1111</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorem est, ipsum perferendis quisquam ratione sed suscipit. Ab accusamus, adipisci asperiores consequuntur deleniti doloribus maiores mollitia nemo quaerat saepe tenetur!</p>
+        <form action="POST">
+            <fieldset>
+                <legend>COMP 1111</legend>
+                <table>
+                    <tr>
+                        <h4>Labs:</h4>
+                        <td>Lab 1: <input type="text"></td>
+                        <td>Lab 2: <input type="text"></td>
+                        <td>Lab 3: <input type="text"></td>
+                        <td>Lab 4: <input type="text"></td>
+                        <td>Lab 5: <input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>Lab 6: <input type="text"></td>
+                        <td>Lab 2: <input type="text"></td>
+                        <td>Lab 3: <input type="text"></td>
+                        <td>Lab 4: <input type="text"></td>
+                        <td>Lab 5: <input type="text"></td>
+                    </tr>
+                </table>
+                <input type="submit">
+            </fieldset>
+        </form>
     </div>
 
     <div id="COMP1113" class="tabcontent">
