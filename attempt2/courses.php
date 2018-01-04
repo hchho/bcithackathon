@@ -1,7 +1,7 @@
 <?php
 
 //Course List
-    $courseListFile = "./test.txt";
+$courseListFile = "./test.txt";
 
 //split the courses into an array
 $test = file($courseListFile);
@@ -49,13 +49,41 @@ for ($i = 0; $i < 10; $i++) {
     <?php
     if (isset($_POST["TERM1"])) {
         echo "<div id=\"COMP1111\" class=\"tabcontent\">
-        <h3>COMP 1111</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorem est, ipsum perferendis quisquam
-            ratione sed suscipit. Ab accusamus, adipisci asperiores consequuntur deleniti doloribus maiores mollitia
-            nemo quaerat saepe tenetur!</p>
-    </div>
+        <h3>COMP 1111</h3>";
+        $Dir = "./styles";
+        $DirOpen = opendir($Dir);
+        while ($CurFile = readdir($DirOpen)) {
+            if ("COMP1111" == $CurFile) {
+                $content = file("./styles/COMP1111");
 
-    <div id=\"COMP1113\" class=\"tabcontent\">
+                for ($i = 0; $i < count($content); ++$i) {
+                    $courseContent = explode(", ", $content[$i]);
+                }
+
+                $count = 0;
+
+                for ($i = 0; $i < sizeof($courseContent); ++$i) {
+                    for ($c = 0; $c < 2; ++$c) {
+                        $weight[$i][$c] = $courseContent[$count];
+                        $count++;
+                    }
+                }
+
+                echo "<div class = 'd'>";
+
+                for ($i = 0; $i < sizeof($courseContent) / 2; ++$i) {
+                    echo $weight[$i][0] . " " . "<input type = 'text' name='COMP1111" . $weight[$i][0] . "'>" . "<br>";
+                    echo "<input type='hidden' name='COMP1111" . $weight[$i][0] . "' value='" . $weight[$i][1] . "'>";
+                }
+
+                echo "</div>";
+            }
+
+        }
+        closedir($DirOpen);
+        echo "</div>";
+
+        echo "<div id=\"COMP1113\" class=\"tabcontent\">
         <h3>COMP 1113</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorem est, ipsum perferendis quisquam
             ratione sed suscipit. Ab accusamus, adipisci asperiores consequuntur deleniti doloribus maiores mollitia
