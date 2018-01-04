@@ -1,5 +1,5 @@
 <?php
-    //Returns an array of all the marks
+    //Returns an array of all the marks as [assignment][mark]
     function retrieveMarks($courseName) {
         $fileName = $courseName . ".txt";
         $Dir = "./Courses";
@@ -28,8 +28,8 @@
         echo "<div class='grades' id='" . $courseName . "'>";
         echo "<h3>" . $courseName . "</h3>";
             for($i = 0; $i < sizeof($array); $i++) {
-                echo $array[$i][0] . ": ";
-                echo $array[$i][1] . "<br/>";
+                // echo $array[$i][0] . ": ";
+                // echo $array[$i][1] . "<br/>";
             }
 
             foreach (getCategoryArray($array) as $category) {
@@ -37,21 +37,51 @@
                 echo $category . " average is " . calcCategoryAvg($category, $array);
                 echo "</P>";
             } 
+            echo "<div class='courseMark' id='" . $courseName . "'>";
+            echo "Final course mark: " . getCourseMark($courseName) . "</br>";
+            // echo "Course credit total: " . getCourseCredit($courseName, getCourseMark($courseName)) . "</br>";
+            echo "</div>";
         echo "</div>";
     }
 
-    //Returns all courses in the text file
+    //Returns course credit achieved using course name and final course mark
+    function getCourseCredit($courseName, $courseMark) {
+        return $_GET[$courseName . 'credit'] * $courseMark;
+    }   
+
+    function getTermGPA() {
+        $sum = 0;
+        $creditCount = 0;
+        $courseArray = getCourses();
+        foreach (getCourses() as $course) {
+            $sum += getCourseCredit($course, getCourseMark($course));
+            $creditCount += $_GET[$course . 'credit'];
+        }
+        return $sum / $creditCount;
+    }
+
+    //Returns all courses in the text file as [coursename]
     function getCourses() {
         $file = "./Courses/term1courses.txt";
         $line = file($file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
         return $line;
     }
+    
+    //Returns final course mark given an array of marks
+    function getCourseMark($courseName) {
+        $array = retrieveMarks($courseName);
+        $sum = 0;
+        for($i = 0; $i < sizeof($array); $i++) {
+            $sum += $array[$i][1]; 
+        }
+        return $sum;
+    }
 
-    //Gets an array of all the categories for that course
-    function getCategoryArray($array) {
+    //Gets an array of all the categories for that course as [category]
+    function getCategoryArray($courseArray) {
         $tempArray = array();
         $count = 0;
-        foreach ($array as $category) {
+        foreach ($courseArray as $category) {
             if (ctype_alnum($category[0])) {
                 $category[0] = preg_replace("/[^a-zA-Z,.]/", "", $category[0] );
                 if (!in_array($category[0], $tempArray)) {
@@ -91,6 +121,9 @@
 <body>
 <h1 id="title">Results</h1>
 <?php
+    echo "<P>";
+    echo getTermGPA();
+    echo "</p>";
     //Generates the divs for all courses that were selected
     for ($j = 0; $j < count(getCourses()); $j++) {
         $temp = getCourses()[$j];
