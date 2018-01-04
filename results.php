@@ -1,4 +1,5 @@
 <?php
+    //Returns an array of all the marks
     function retrieveMarks($courseName) {
         $fileName = $courseName . ".txt";
         $Dir = "./Courses";
@@ -21,6 +22,7 @@
         }
     }
 
+    //Generates a div for each course
     function generateDiv($courseName) {
         $array = retrieveMarks($courseName);
         echo "<div class='grades' id='" . $courseName . "'>";
@@ -38,12 +40,14 @@
         echo "</div>";
     }
 
+    //Returns all courses in the text file
     function getCourses() {
         $file = "./Courses/term1courses.txt";
         $line = file($file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
         return $line;
     }
 
+    //Gets an array of all the categories for that course
     function getCategoryArray($array) {
         $tempArray = array();
         $count = 0;
@@ -58,6 +62,7 @@
         return $tempArray;
     }
 
+    //Returns the average for each category
     function calcCategoryAvg($category, $marksArray) {
         $count = 0;
         $sum = 0;
@@ -86,8 +91,7 @@
 <body>
 <h1 id="title">Results</h1>
 <?php
-    $courses = 0;
-    $credit = 'credit';
+    //Generates the divs for all courses that were selected
     for ($j = 0; $j < count(getCourses()); $j++) {
         $temp = getCourses()[$j];
         if ($_GET[$temp . 'credit'] > 0) {
