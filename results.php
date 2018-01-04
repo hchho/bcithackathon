@@ -54,14 +54,14 @@
                 echo "</P>";
             } 
             echo "<div class='courseMark' id='" . $courseName . "'>";
-            echo "Final course mark: " . getCourseMark($courseName) . "</br>";
+            echo "Final course mark: " . getCourseMark($courseName) . " / 100</br>";
             echo "</div>";
         echo "</div>";
     }
 
     //Returns course credit achieved using course name and final course mark
     function getCourseCredit($courseName, $courseMark) {
-        return $_POST[$courseName . 'credit'] * $courseMark;
+        return $_POST[$courseName . 'Credit'] * $courseMark;
     }   
 
     function getTermGPA() {
@@ -70,7 +70,7 @@
         $courseArray = getCourses();
         foreach (getCourses() as $course) {
             $sum += getCourseCredit($course, getCourseMark($course));
-            $creditCount += $_POST[$course . 'value'];
+            $creditCount += $_POST[$course . 'Credit'];
         }
         return $sum / $creditCount;
     }
@@ -84,10 +84,13 @@
     
     //Returns final course mark given an array of marks
     function getCourseMark($courseName) {
-        $array = retrieveMarks($courseName);
+        $array = retrieveScores($courseName);
         $sum = 0;
         for($i = 0; $i < sizeof($array); $i++) {
-            $sum += $array[$i][1]; 
+            if ($array[$i][1] > 0) {
+                $sum += $array[$i][1];
+            }
+             
         }
         return $sum;
     }
@@ -152,15 +155,14 @@
 <body>
 <h1 id="title">Results</h1>
 <?php
-    retrieveScores('COMP1111');
     echo "<P>Term GPA: ";
     echo getTermGPA();
     echo "</p>";
     //Generates the divs for all courses that were selected
-    for ($j = 0; $j < count(getCourses()); $j++) {
-        $temp = getCourses()[$j];
+    for ($i = 0; $i < count(getCourses()); $i++) {
+        $temp = getCourses()[$i];
         if ($_POST['is'.$temp] > 0) {
-            generateDiv(getCourses()[$j]);
+            generateDiv(getCourses()[$i]);
         };    
     }
 ?>
