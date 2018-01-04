@@ -1,7 +1,7 @@
 <?php
 
 //Course List
-$courseListFile = "./test.txt";
+$courseListFile = "./Courses/test.txt";
 
 //split the courses into an array
 $test = file($courseListFile);
@@ -37,7 +37,7 @@ for ($i = 0; $i < 10; $i++) {
 <body>
 <div class="row">
     <!-- Side navigation -->
-    <div class="tab col-xs-2">
+    <div class="tab">
         <?php
         if (isset($_POST["TERM1"])) {
             for ($j = 0; $j <= $counter; $j++) {
@@ -50,11 +50,11 @@ for ($i = 0; $i < 10; $i++) {
     if (isset($_POST["TERM1"])) {
         echo "<div id=\"COMP1111\" class=\"tabcontent\">
         <h3>COMP 1111</h3>";
-        $Dir = "./styles";
+        $Dir = "./Courses";
         $DirOpen = opendir($Dir);
         while ($CurFile = readdir($DirOpen)) {
-            if ("COMP1111" == $CurFile) {
-                $content = file("./styles/COMP1111");
+            if ("COMP1111.txt" == $CurFile) {
+                $content = file("./Courses/COMP1111.txt");
 
                 for ($i = 0; $i < count($content); ++$i) {
                     $courseContent = explode(", ", $content[$i]);
@@ -84,34 +84,147 @@ for ($i = 0; $i < 10; $i++) {
         echo "</div>";
 
         echo "<div id=\"COMP1113\" class=\"tabcontent\">
-        <h3>COMP 1113</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorem est, ipsum perferendis quisquam
-            ratione sed suscipit. Ab accusamus, adipisci asperiores consequuntur deleniti doloribus maiores mollitia
-            nemo quaerat saepe tenetur!</p>
-    </div>
+        <h3>COMP 1113</h3>";
+        $Dir = "./Courses";
+        $DirOpen = opendir($Dir);
+        while ($CurFile = readdir($DirOpen)) {
+            if ("COMP1113.txt" == $CurFile) {
+                $content = file("./Courses/COMP1113.txt");
 
-    <div id=\"COMP1510\" class=\"tabcontent\">
-        <h3>COMP 1510</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorem est, ipsum perferendis quisquam
-            ratione sed suscipit. Ab accusamus, adipisci asperiores consequuntur deleniti doloribus maiores mollitia
-            nemo quaerat saepe tenetur!</p>
-    </div>
+                for ($i = 0; $i < count($content); ++$i) {
+                    $courseContent = explode(", ", $content[$i]);
+                }
 
-    <div id=\"COMP1536\" class=\"tabcontent\">
-        <h3>COMP 1536</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorem est, ipsum perferendis quisquam
-            ratione sed suscipit. Ab accusamus, adipisci asperiores consequuntur deleniti doloribus maiores mollitia
-            nemo quaerat saepe tenetur!</p>
-    </div>
+                $count = 0;
 
-    <div id=\"COMM1116\" class=\"tabcontent\">
-        <h3>COMM 1116</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorem est, ipsum perferendis quisquam
-            ratione sed suscipit. Ab accusamus, adipisci asperiores consequuntur deleniti doloribus maiores mollitia
-            nemo quaerat saepe tenetur!</p>
-    </div>
+                for ($i = 0; $i < sizeof($courseContent); ++$i) {
+                    for ($c = 0; $c < 2; ++$c) {
+                        $weight[$i][$c] = $courseContent[$count];
+                        $count++;
+                    }
+                }
 
-    <div id=\"BUSA2720\" class=\"tabcontent\">
+                echo "<div class = 'd'>";
+
+                for ($i = 0; $i < sizeof($courseContent) / 2; ++$i) {
+                    echo $weight[$i][0] . " " . "<input type = 'text' name='COMP1113" . $weight[$i][0] . "'>" . "<br>";
+                    echo "<input type='hidden' name='COMP1113" . $weight[$i][0] . "' value='" . $weight[$i][1] . "'>";
+                }
+
+                echo "</div>";
+            }
+
+        }
+        closedir($DirOpen);
+        echo "</div>";
+
+        echo "<div id = \"COMP1510\" class=\"tabcontent\">
+        <h3>COMP 1510</h3>";
+        $Dir = "./Courses";
+        $DirOpen = opendir($Dir);
+        while ($CurFile = readdir($DirOpen)) {
+            if ("COMP1510.txt" == $CurFile) {
+                $content = file("./Courses/COMP1510.txt");
+
+                for ($i = 0; $i < count($content); ++$i) {
+                    $courseContent = explode(", ", $content[$i]);
+                }
+
+                $count = 0;
+
+                for ($i = 0; $i < sizeof($courseContent); ++$i) {
+                    for ($c = 0; $c < 2; ++$c) {
+                        $weight[$i][$c] = $courseContent[$count];
+                        $count++;
+                    }
+                }
+
+                echo "<div class = 'd'>";
+
+                for ($i = 0; $i < sizeof($courseContent) / 2; ++$i) {
+                    echo $weight[$i][0] . " " . "<input type = 'text' name='comp1510" . $weight[$i][0] . "'>" . "<br>";
+                    echo "<input type='hidden' name='comp1510" . $weight[$i][0] . "' value='" . $weight[$i][1] . "'>";
+                }
+
+                echo "</div>";
+            }
+
+        }
+        closedir($DirOpen);
+        echo "</div>";
+
+        echo "<div id=\"COMP1536\" class=\"tabcontent\">
+        <h3>COMP 1536</h3>";
+        $Dir = "./Courses";
+        $DirOpen = opendir($Dir);
+        while ($CurFile = readdir($DirOpen)) {
+            if ("COMP1536.txt" == $CurFile) {
+                $content = file("./Courses/COMP1536.txt");
+
+                for ($i = 0; $i < count($content); ++$i) {
+                    $courseContent = explode(", ", $content[$i]);
+                }
+
+                $count = 0;
+
+                for ($i = 0; $i < sizeof($courseContent); ++$i) {
+                    for ($c = 0; $c < 2; ++$c) {
+                        $weight[$i][$c] = $courseContent[$count];
+                        $count++;
+                    }
+                }
+
+                echo "<div class = 'd'>";
+
+                for ($i = 0; $i < sizeof($courseContent) / 2; ++$i) {
+                    echo $weight[$i][0] . " " . "<input type = 'text' name='COMP1536" . $weight[$i][0] . "'>" . "<br>";
+                    echo "<input type='hidden' name='COMP1536" . $weight[$i][0] . "' value='" . $weight[$i][1] . "'>";
+                }
+
+                echo "</div>";
+            }
+
+        }
+        closedir($DirOpen);
+        echo "</div>";
+
+        echo "<div id=\"COMM1116\" class=\"tabcontent\"> 
+        <h3>COMM 1116</h3>";
+        $Dir = "./Courses";
+        $DirOpen = opendir($Dir);
+        while ($CurFile = readdir($DirOpen)) {
+            if ("COMM1116.txt" == $CurFile) {
+                $content = file("./Courses/COMM1116.txt");
+
+                for ($i = 0; $i < count($content); ++$i) {
+                    $courseContent = explode(", ", $content[$i]);
+                }
+
+                $count = 0;
+
+                for ($i = 0; $i < sizeof($courseContent); ++$i) {
+                    for ($c = 0; $c < 2; ++$c) {
+                        $weight[$i][$c] = $courseContent[$count];
+                        $count++;
+                    }
+                }
+
+                echo "<div class = 'd'>";
+
+                for ($i = 0; $i < sizeof($courseContent) / 2; ++$i) {
+                    echo $weight[$i][0] . " " . "<input type = 'text' name='COMM1116" . $weight[$i][0] . "'>" . "<br>";
+                    echo "<input type='hidden' name='COMP1536" . $weight[$i][0] . "' value='" . $weight[$i][1] . "'>";
+                }
+
+                echo "</div>";
+            }
+
+        }
+        closedir($DirOpen);
+
+        echo "</div>";
+
+        "<div id=\"BUSA2720\" class=\"tabcontent\">
         <h3>BUSA 2720</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorem est, ipsum perferendis quisquam
             ratione sed suscipit. Ab accusamus, adipisci asperiores consequuntur deleniti doloribus maiores mollitia
