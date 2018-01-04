@@ -87,7 +87,7 @@ for ($i = 0; $i < count($courseArray); $i++) {
 
         echo "<div id=\"COMP1113\" class=\"tabcontent\">
         <h3>COMP 1113</h3>";
-        echo "Enrolled? <input type=\"checkbox\" name=\"isCOMP11113\" value=\"1\" id=\"isCOMP11113\">";
+        echo "Enrolled? <input type=\"checkbox\" name=\"isCOMP1113\" value=\"1\" id=\"isCOMP11113\">";
         $Dir = "./Courses";
         $DirOpen = opendir($Dir);
         while ($CurFile = readdir($DirOpen)) {
