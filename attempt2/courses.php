@@ -1,16 +1,16 @@
 <?php
 
 //Course List
-$courseListFile = "./Courses/test.txt";
+$courseListFile = "./Courses/term1courses.txt";
 
 //split the courses into an array
-$test = file($courseListFile);
-$courseArray = array(explode(", ", $test[0]));
-
+// $test = file($courseListFile);
+$courseArray = file($courseListFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+// $courseArray = array(explode(", ", $test[0]));
 //count how many courses are in the file
 $counter = 0;
-for ($i = 0; $i < 10; $i++) {
-    if ($courseArray[0][$i] != "") {
+for ($i = 0; $i < count($courseArray); $i++) {
+    if ($courseArray[$i] != "") {
         $counter++;
     }
 }
@@ -39,24 +39,23 @@ for ($i = 0; $i < 10; $i++) {
     <!-- Side navigation -->
     <div class="tab">
         <?php
-
         if (isset($_POST["TERM1"])) {
             for ($j = 0; $j <= $counter; $j++) {
-                echo "<button class=\"tablinks\" onclick=\"openCourse(event, '" . $courseArray[0][$j] . "')\">" . $courseArray[0][$j] . "</button>";
+                echo "<button class=\"tablinks\" onclick=\"openCourse(event, '" . $courseArray[$j] . "')\">" . $courseArray[$j] . "</button>";
             }
         }
         ?>
     </div>
     <?php
     if (isset($_POST["TERM1"])) {
-        echo "<form action='index.php' method='post'>";
+        echo "<form action='results.php' method='post'>";
         echo "<div id=\"COMP1111\" class=\"tabcontent\">
         <h3>COMP 1111</h3>";
-        echo "Enrolled? <input type=\"checkbox\" name=\"COMP1111\" value=\"COMP1111\" id=\"isCOMP1111\">";
+        echo "Enrolled? <input type=\"checkbox\" name=\"isCOMP1111\" value=\"1\" id=\"isCOMP1111\">";
         $Dir = "./Courses";
         $DirOpen = opendir($Dir);
         while ($CurFile = readdir($DirOpen)) {
-            if ("COMP1111.txt" == $CurFile) {
+            if ("COMP1111.txt" == $CurFile) {   
                 $content = file("./Courses/COMP1111.txt");
 
                 for ($i = 0; $i < count($content); ++$i) {
@@ -72,11 +71,11 @@ for ($i = 0; $i < 10; $i++) {
                     }
                 }
 
-                echo "<div class = 'd'>";
+          		echo "<div class='bg-warning'>";
 
                 for ($i = 0; $i < sizeof($courseContent) / 2; ++$i) {
-                    echo $weight[$i][0] . " " . "<input type = 'text' name='COMP1111" . $weight[$i][0] . "'>" . "<br>";
-                    echo "<input type='hidden' name='COMP1111" . $weight[$i][0] . "' value='" . $weight[$i][1] . "'>";
+                    echo "<div>" . $weight[$i][0] . " " . "</div>" . "<input type = 'text' name='COMM1111" . $weight[$i][0] . "'>" . "<br>";
+                    echo "<input type='hidden' name='COMM1111" . $weight[$i][0] . "value' value='" . $weight[$i][1] . "'>";
                 }
 
                 echo "</div>";
@@ -108,11 +107,11 @@ for ($i = 0; $i < 10; $i++) {
                     }
                 }
 
-                echo "<div class = 'd'>";
+          		echo "<div class='bg-warning'>";
 
                 for ($i = 0; $i < sizeof($courseContent) / 2; ++$i) {
-                    echo $weight[$i][0] . " " . "<input type = 'text' name='COMP1113" . $weight[$i][0] . "'>" . "<br>";
-                    echo "<input type='hidden' name='COMP1113" . $weight[$i][0] . "' value='" . $weight[$i][1] . "'>";
+                    echo "<div>" . $weight[$i][0] . " " . "</div>" . "<input type = 'text' name='COMM1113" . $weight[$i][0] . "'>" . "<br>";
+                    echo "<input type='hidden' name='COMM1113" . $weight[$i][0] . "value' value='" . $weight[$i][1] . "'>";
                 }
 
                 echo "</div>";
@@ -146,11 +145,11 @@ for ($i = 0; $i < 10; $i++) {
                     }
                 }
 
-                echo "<div class = 'd'>";
+          		echo "<div class='bg-warning'>";
 
                 for ($i = 0; $i < sizeof($courseContent) / 2; ++$i) {
-                    echo $weight[$i][0] . " " . "<input type = 'text' name='comp1510" . $weight[$i][0] . "'>" . "<br>";
-                    echo "<input type='hidden' name='comp1510" . $weight[$i][0] . "' value='" . $weight[$i][1] . "'>";
+                    echo "<div>" . $weight[$i][0] . " " . "</div>" . "<input type = 'text' name='COMM1510" . $weight[$i][0] . "'>" . "<br>";
+                    echo "<input type='hidden' name='COMM1510" . $weight[$i][0] . "value' value='" . $weight[$i][1] . "'>";
                 }
 
                 echo "</div>";
@@ -182,11 +181,11 @@ for ($i = 0; $i < 10; $i++) {
                     }
                 }
 
-                echo "<div class = 'd'>";
+				echo "<div class='bg-warning'>";
 
                 for ($i = 0; $i < sizeof($courseContent) / 2; ++$i) {
-                    echo $weight[$i][0] . " " . "<input type = 'text' name='COMP1536" . $weight[$i][0] . "'>" . "<br>";
-                    echo "<input type='hidden' name='COMP1536" . $weight[$i][0] . "' value='" . $weight[$i][1] . "'>";
+                    echo "<div>" . $weight[$i][0] . " " . "</div>" . "<input type = 'text' name='COMM1536" . $weight[$i][0] . "'>" . "<br>";
+                    echo "<input type='hidden' name='COMM1536" . $weight[$i][0] . "value' value='" . $weight[$i][1] . "'>";
                 }
 
                 echo "</div>";
@@ -198,7 +197,7 @@ for ($i = 0; $i < 10; $i++) {
 
         echo "<div id=\"COMM1116\" class=\"tabcontent\"> 
         <h3>COMM 1116</h3>";
-        echo "Enrolled? <input type=\"checkbox\" name=\"COMP1116\" value=\"COMP1116\" id=\"isCOMP1116\">";
+        echo "Enrolled? <input type=\"checkbox\" name=\"COMM1116\" value=\"COMP1116\" id=\"isCOMP1116\">";
         $Dir = "./Courses";
         $DirOpen = opendir($Dir);
         while ($CurFile = readdir($DirOpen)) {
@@ -217,12 +216,12 @@ for ($i = 0; $i < 10; $i++) {
                         $count++;
                     }
                 }
-
-                echo "<div class = 'd'>";
+				
+				echo "<div class='bg-warning bg-color'>";
 
                 for ($i = 0; $i < sizeof($courseContent) / 2; ++$i) {
-                    echo $weight[$i][0] . " " . "<input type = 'text' name='COMM1116" . $weight[$i][0] . "'>" . "<br>";
-                    echo "<input type='hidden' name='COMP1536" . $weight[$i][0] . "' value='" . $weight[$i][1] . "'>";
+                    echo "<div>" . $weight[$i][0] . " " . "</div>" . "<input type = 'text' name='COMM1116" . $weight[$i][0] . "'>" . "<br>";
+                    echo "<input type='hidden' name='COMM1116" . $weight[$i][0] . "value' value='" . $weight[$i][1] . "'>";
                 }
 
                 echo "</div>";
@@ -245,9 +244,8 @@ for ($i = 0; $i < 10; $i++) {
     echo "</div>";
 
 
-    echo "<div class=\"footer\">";
     echo "<input type=\"submit\">";
-    echo "</div>";
+
     echo "</form>";
     ?>
 </body>
