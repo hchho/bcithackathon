@@ -39,6 +39,7 @@ for ($i = 0; $i < 10; $i++) {
     <!-- Side navigation -->
     <div class="tab">
         <?php
+
         if (isset($_POST["TERM1"])) {
             for ($j = 0; $j <= $counter; $j++) {
                 echo "<button class=\"tablinks\" onclick=\"openCourse(event, '" . $courseArray[0][$j] . "')\">" . $courseArray[0][$j] . "</button>";
@@ -48,8 +49,10 @@ for ($i = 0; $i < 10; $i++) {
     </div>
     <?php
     if (isset($_POST["TERM1"])) {
+        echo "<form action='index.php' method='post'>";
         echo "<div id=\"COMP1111\" class=\"tabcontent\">
         <h3>COMP 1111</h3>";
+        echo "Enrolled? <input type=\"checkbox\" name=\"COMP1111\" value=\"COMP1111\" id=\"isCOMP1111\">";
         $Dir = "./Courses";
         $DirOpen = opendir($Dir);
         while ($CurFile = readdir($DirOpen)) {
@@ -85,6 +88,7 @@ for ($i = 0; $i < 10; $i++) {
 
         echo "<div id=\"COMP1113\" class=\"tabcontent\">
         <h3>COMP 1113</h3>";
+        echo "Enrolled? <input type=\"checkbox\" name=\"COMP11113\" value=\"COMP11113\" id=\"isCOMP11113\">";
         $Dir = "./Courses";
         $DirOpen = opendir($Dir);
         while ($CurFile = readdir($DirOpen)) {
@@ -120,7 +124,10 @@ for ($i = 0; $i < 10; $i++) {
 
         echo "<div id = \"COMP1510\" class=\"tabcontent\">
         <h3>COMP 1510</h3>";
-        $Dir = "./Courses";
+        echo "Enrolled? <input type=\"checkbox\" name=\"COMP1510\" value=\"COMP1510\" id=\"isCOMP1510\">";
+        echo "<br/>";
+
+            $Dir = "./Courses";
         $DirOpen = opendir($Dir);
         while ($CurFile = readdir($DirOpen)) {
             if ("COMP1510.txt" == $CurFile) {
@@ -155,6 +162,7 @@ for ($i = 0; $i < 10; $i++) {
 
         echo "<div id=\"COMP1536\" class=\"tabcontent\">
         <h3>COMP 1536</h3>";
+        echo "Enrolled? <input type=\"checkbox\" name=\"COMP1536\" value=\"COMP1536\" id=\"isCOMP1536\">";
         $Dir = "./Courses";
         $DirOpen = opendir($Dir);
         while ($CurFile = readdir($DirOpen)) {
@@ -190,6 +198,7 @@ for ($i = 0; $i < 10; $i++) {
 
         echo "<div id=\"COMM1116\" class=\"tabcontent\"> 
         <h3>COMM 1116</h3>";
+        echo "Enrolled? <input type=\"checkbox\" name=\"COMP1116\" value=\"COMP1116\" id=\"isCOMP1116\">";
         $Dir = "./Courses";
         $DirOpen = opendir($Dir);
         while ($CurFile = readdir($DirOpen)) {
@@ -231,12 +240,16 @@ for ($i = 0; $i < 10; $i++) {
             nemo quaerat saepe tenetur!</p>
     </div>";
     }
+
+
+    echo "</div>";
+
+
+    echo "<div class=\"footer\">";
+    echo "<input type=\"submit\">";
+    echo "</div>";
+    echo "</form>";
     ?>
-
-
-</div>
-
-
 </body>
 
 </html>

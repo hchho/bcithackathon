@@ -17,11 +17,6 @@ div {
 </style>
 <script>
 $(document).ready(function(){
-    // if (document.getElementById('isCOMP1510').checked) {
-    //     $("#COMP1510").show();
-    // } else {
-    //     $("#COMP1510").hide();
-    // }
     $('#isCOMP1510').click(function() {
     $("#COMP1510").toggle(this.checked);
 });

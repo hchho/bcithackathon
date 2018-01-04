@@ -45,5 +45,13 @@ body {
     border-top: none;
 }
 
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #8881ff;
+    color: #ff0038;
+    text-align: center;
 
-
+}
