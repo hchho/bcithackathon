@@ -23,13 +23,32 @@
         }
     }
 
+    function getWeight($courseName) {
+        $array = retrieveMarks($courseName);
+        $tempName = array();
+        $tempWeight = array();
+        $count = 0;
+        foreach ($array as $elem) {
+            // $end = substr($elem[0], strlen($key) - 5, strlen($key) - 1);
+            // if(substr($elem[0], 0, 3) == $courseName && $end != "value" && $end != "redit") {
+                if (!in_array(substr($elem[0], 0, 3), $tempName)) { 
+                    $tempName[$count] = substr($elem[0], 0, 3);
+                    $tempWeight[$count] = $elem[1];
+                    $count++; 
+                }
+            // }
+        }
+        print_r($tempWeight);
+        return $tempWeight;
+    }
+
     //Returns scores as an array for course name
     function retrieveScores($courseName) {
         $temp = array();
         $i = 0;
         foreach ($_POST as $key => $value) {
             $end = substr($key, strlen($key) - 5, strlen($key) - 1);
-            if(substr($key, 0, 8) == $courseName && $end != "value") {
+            if(substr($key, 0, 8) == $courseName && $end != "value" && $end != "redit") {
                 $temp[$i][0] = $key;
                 $temp[$i][1] = $value;
                 $i++;
@@ -43,14 +62,9 @@
         $array = retrieveMarks($courseName);
         echo "<div class='grades' id='" . $courseName . "'>";
         echo "<h3>" . $courseName . "</h3>";
-            for($i = 0; $i < sizeof($array); $i++) {
-                // echo $array[$i][0] . ": ";
-                // echo $array[$i][1] . "<br/>";
-            }
-
             foreach (getCategoryArray($array) as $category) {
                 echo "<P>";
-                echo $category . " average is " . calcCategoryAvg($category, $array, retrieveScores($courseName));
+                echo $category . " average is " . calcCategoryAvg($category, retrieveScores($courseName));
                 echo "</P>";
             } 
             echo "<div class='courseMark' id='" . $courseName . "'>";
@@ -69,8 +83,10 @@
         $creditCount = 0;
         $courseArray = getCourses();
         foreach (getCourses() as $course) {
+            if($_POST['is'.$course] > 0) {
             $sum += getCourseCredit($course, getCourseMark($course));
             $creditCount += $_POST[$course . 'Credit'];
+            }
         }
         return $sum / $creditCount;
     }
@@ -84,15 +100,19 @@
     
     //Returns final course mark given an array of marks
     function getCourseMark($courseName) {
-        $array = retrieveScores($courseName);
-        $sum = 0;
-        for($i = 0; $i < sizeof($array); $i++) {
-            if ($array[$i][1] > 0) {
-                $sum += $array[$i][1];
-            }
-             
+        $catArray = getCategoryArray(getCourses($courseName));
+        $count = 0;
+        $temp = array();
+        foreach ($catArray as $cat) {
+           $temp[$count] = calcCategoryAvg($cat, retrieveScores($courseName));
+           $count++;
         }
-        return $sum;
+        $final = 0;
+        for ($i = 0; $i < sizeof($temp); $i++) {
+            $elem = $temp[$i] / 100 * getWeight($courseName)[$i];
+            $final += $elem;
+        }
+        return $final;
     }
 
     //Gets an array of all the categories for that course as [category]
@@ -111,16 +131,7 @@
     }
 
     //Returns the average for each category
-    function calcCategoryAvg($category, $marksArray, $scoreArray) {
-        $count = 0;
-        $sum = 0;
-        foreach ($marksArray as $entry) {
-            if (strpos($entry[0], $category) !== false) {
-                $count += 1;
-                $sum += $entry[1];
-            }
-        }
-        $weight = $sum / $count;
+    function calcCategoryAvg($category, $scoreArray) {
         $count2 = 0;
         $sum2 = 0;
         foreach ($scoreArray as $entry2) {
@@ -132,11 +143,10 @@
             }
         }
         if ($count2 > 0) {
-        $score = $sum2 / $count2;
+        return $sum2 / $count2;
         } else {
             $score = 0;
         }
-        return $score / $weight;
     }
 ?>
 
