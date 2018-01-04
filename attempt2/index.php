@@ -11,5 +11,14 @@
 <form action="courses.php" method="post">
     <input type="submit" name="TERM1" value="TERM1">
 </form>
+<form action="courses.php" method="post">
+    <input type="submit" name="TERM2" value="TERM2">
+</form>
+<form action="courses.php" method="post">
+    <input type="submit" name="TERM3" value="TERM3">
+</form>
+<form action="courses.php" method="post">
+    <input type="submit" name="TERM4" value="TERM4">
+</form>
 </body>
 </html>

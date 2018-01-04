@@ -1,9 +1,7 @@
 <?php
-if (isset($_POST["TERM1"])) {
-//    echo "worked";
-}
+
 //Course List
-$courseListFile = "./test.txt";
+    $courseListFile = "./test.txt";
 
 //split the courses into an array
 $test = file($courseListFile);
@@ -41,53 +39,60 @@ for ($i = 0; $i < 10; $i++) {
     <!-- Side navigation -->
     <div class="tab col-xs-2">
         <?php
-        for ($j = 0; $j <= $counter; $j++) {
-            echo "<button class=\"tablinks\" onclick=\"openCourse(event, '" . $courseArray[0][$j] . "')\">" . $courseArray[0][$j] . "</button>";
+        if (isset($_POST["TERM1"])) {
+            for ($j = 0; $j <= $counter; $j++) {
+                echo "<button class=\"tablinks\" onclick=\"openCourse(event, '" . $courseArray[0][$j] . "')\">" . $courseArray[0][$j] . "</button>";
+            }
         }
         ?>
     </div>
-
-    <div id="COMP1111" class="tabcontent">
+    <?php
+    if (isset($_POST["TERM1"])) {
+        echo "<div id=\"COMP1111\" class=\"tabcontent\">
         <h3>COMP 1111</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorem est, ipsum perferendis quisquam
             ratione sed suscipit. Ab accusamus, adipisci asperiores consequuntur deleniti doloribus maiores mollitia
             nemo quaerat saepe tenetur!</p>
     </div>
 
-    <div id="COMP1113" class="tabcontent">
+    <div id=\"COMP1113\" class=\"tabcontent\">
         <h3>COMP 1113</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorem est, ipsum perferendis quisquam
             ratione sed suscipit. Ab accusamus, adipisci asperiores consequuntur deleniti doloribus maiores mollitia
             nemo quaerat saepe tenetur!</p>
     </div>
 
-    <div id="COMP1510" class="tabcontent">
+    <div id=\"COMP1510\" class=\"tabcontent\">
         <h3>COMP 1510</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorem est, ipsum perferendis quisquam
             ratione sed suscipit. Ab accusamus, adipisci asperiores consequuntur deleniti doloribus maiores mollitia
             nemo quaerat saepe tenetur!</p>
     </div>
 
-    <div id="COMP1536" class="tabcontent">
+    <div id=\"COMP1536\" class=\"tabcontent\">
         <h3>COMP 1536</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorem est, ipsum perferendis quisquam
             ratione sed suscipit. Ab accusamus, adipisci asperiores consequuntur deleniti doloribus maiores mollitia
             nemo quaerat saepe tenetur!</p>
     </div>
 
-    <div id="COMM1116" class="tabcontent">
+    <div id=\"COMM1116\" class=\"tabcontent\">
         <h3>COMM 1116</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorem est, ipsum perferendis quisquam
             ratione sed suscipit. Ab accusamus, adipisci asperiores consequuntur deleniti doloribus maiores mollitia
             nemo quaerat saepe tenetur!</p>
     </div>
 
-    <div id="BUSA2720" class="tabcontent">
+    <div id=\"BUSA2720\" class=\"tabcontent\">
         <h3>BUSA 2720</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorem est, ipsum perferendis quisquam
             ratione sed suscipit. Ab accusamus, adipisci asperiores consequuntur deleniti doloribus maiores mollitia
             nemo quaerat saepe tenetur!</p>
-    </div>
+    </div>";
+    }
+    ?>
+
+
 </div>
 
 
