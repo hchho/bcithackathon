@@ -73,18 +73,11 @@ for ($i = 0; $i < count($courseArray); $i++) {
           		echo "<div class='container'>";
 
                 for ($i = 0; $i < sizeof($courseContent) / 2; ++$i) {
-<<<<<<< HEAD
                     echo "<div>" . $weight[$i][0] . " " . "</div>" . "<input type = 'text' name='COMP1111" . $weight[$i][0] . "'>" . "<br>";
                     echo "<input type='hidden' name='COMP1111" . $weight[$i][0] . "value' value='" . $weight[$i][1] . "'>";
 					
                 }
 				echo "<input type='hidden' name='COMP1111Credit' value='" . 4 . "'>";
-=======
-                    echo "<div>" . $weight[$i][0] . " " . "</div>" . "<input type = 'text' name='COMM1111" . $weight[$i][0] . "'>" . "<br>";
-                    echo "<input type='hidden' name='COMM1111" . $weight[$i][0] . "value' value='" . $weight[$i][1] . "'>";
-                }
-
->>>>>>> f760def114136b9fb49540ed0f5c90cd2ecc1232
                 echo "</div>";
             }
 
@@ -94,11 +87,7 @@ for ($i = 0; $i < count($courseArray); $i++) {
 
         echo "<div id=\"COMP1113\" class=\"tabcontent\">
         <h3>COMP 1113</h3>";
-<<<<<<< HEAD
         echo "Enrolled? <input type=\"checkbox\" name=\"isCOMP11113\" value=\"1\" id=\"isCOMP11113\">";
-=======
-        echo "Enrolled? <input type=\"checkbox\" name=\"COMP11113\" value=\"COMP11113\" id=\"isCOMP11113\">";
->>>>>>> f760def114136b9fb49540ed0f5c90cd2ecc1232
         $Dir = "./Courses";
         $DirOpen = opendir($Dir);
         while ($CurFile = readdir($DirOpen)) {
@@ -121,18 +110,11 @@ for ($i = 0; $i < count($courseArray); $i++) {
           		echo "<div class='container'>";
 
                 for ($i = 0; $i < sizeof($courseContent) / 2; ++$i) {
-<<<<<<< HEAD
                     echo "<div>" . $weight[$i][0] . " " . "</div>" . "<input type = 'text' name='COMP1113" . $weight[$i][0] . "'>" . "<br>";
                     echo "<input type='hidden' name='COMP1113" . $weight[$i][0] . "value' value='" . $weight[$i][1] . "'>";
 					
                 }
 				echo "<input type='hidden' name='COMP1113Credit' value='" . 4 . "'>";
-=======
-                    echo "<div>" . $weight[$i][0] . " " . "</div>" . "<input type = 'text' name='COMM1113" . $weight[$i][0] . "'>" . "<br>";
-                    echo "<input type='hidden' name='COMM1113" . $weight[$i][0] . "value' value='" . $weight[$i][1] . "'>";
-                }
-
->>>>>>> f760def114136b9fb49540ed0f5c90cd2ecc1232
                 echo "</div>";
             }
 
@@ -142,11 +124,7 @@ for ($i = 0; $i < count($courseArray); $i++) {
 
         echo "<div id = \"COMP1510\" class=\"tabcontent\">
         <h3>COMP 1510</h3>";
-<<<<<<< HEAD
         echo "Enrolled? <input type=\"checkbox\" name=\"isCOMP1510\" value=\"1\" id=\"isCOMP1510\">";
-=======
-        echo "Enrolled? <input type=\"checkbox\" name=\"COMP1510\" value=\"COMP1510\" id=\"isCOMP1510\">";
->>>>>>> f760def114136b9fb49540ed0f5c90cd2ecc1232
         echo "<br/>";
 
             $Dir = "./Courses";
@@ -171,18 +149,11 @@ for ($i = 0; $i < count($courseArray); $i++) {
           		echo "<div class='container'>";
 
                 for ($i = 0; $i < sizeof($courseContent) / 2; ++$i) {
-<<<<<<< HEAD
                     echo "<div>" . $weight[$i][0] . " " . "</div>" . "<input type = 'text' name='COMP1510" . $weight[$i][0] . "'>" . "<br>";
                     echo "<input type='hidden' name='COMP1510" . $weight[$i][0] . "value' value='" . $weight[$i][1] . "'>";
 					
                 }
 				echo "<input type='hidden' name='COMP1510Credit' value='" . 7 . "'>";				
-=======
-                    echo "<div>" . $weight[$i][0] . " " . "</div>" . "<input type = 'text' name='COMM1510" . $weight[$i][0] . "'>" . "<br>";
-                    echo "<input type='hidden' name='COMM1510" . $weight[$i][0] . "value' value='" . $weight[$i][1] . "'>";
-                }
-
->>>>>>> f760def114136b9fb49540ed0f5c90cd2ecc1232
                 echo "</div>";
             }
 
@@ -192,11 +163,7 @@ for ($i = 0; $i < count($courseArray); $i++) {
 
         echo "<div id=\"COMP1536\" class=\"tabcontent\">
         <h3>COMP 1536</h3>";
-<<<<<<< HEAD
         echo "Enrolled? <input type=\"checkbox\" name=\"isCOMP1536\" value=\"1\" id=\"isCOMP1536\">";
-=======
-        echo "Enrolled? <input type=\"checkbox\" name=\"COMP1536\" value=\"COMP1536\" id=\"isCOMP1536\">";
->>>>>>> f760def114136b9fb49540ed0f5c90cd2ecc1232
         $Dir = "./Courses";
         $DirOpen = opendir($Dir);
         while ($CurFile = readdir($DirOpen)) {
@@ -219,17 +186,10 @@ for ($i = 0; $i < count($courseArray); $i++) {
 				echo "<div class='container'>";
 
                 for ($i = 0; $i < sizeof($courseContent) / 2; ++$i) {
-<<<<<<< HEAD
                     echo "<div>" . $weight[$i][0] . " " . "</div>" . "<input type = 'text' name='COMP1536" . $weight[$i][0] . "'>" . "<br>";
                     echo "<input type='hidden' name='COMP1536" . $weight[$i][0] . "value' value='" . $weight[$i][1] . "'>";
                 }
 				echo "<input type='hidden' name='COMP1536Credit' value='" . 4 . "'>";
-=======
-                    echo "<div>" . $weight[$i][0] . " " . "</div>" . "<input type = 'text' name='COMM1536" . $weight[$i][0] . "'>" . "<br>";
-                    echo "<input type='hidden' name='COMM1536" . $weight[$i][0] . "value' value='" . $weight[$i][1] . "'>";
-                }
-
->>>>>>> f760def114136b9fb49540ed0f5c90cd2ecc1232
                 echo "</div>";
             }
 
@@ -239,11 +199,7 @@ for ($i = 0; $i < count($courseArray); $i++) {
 
         echo "<div id=\"COMM1116\" class=\"tabcontent\"> 
         <h3>COMM 1116</h3>";
-<<<<<<< HEAD
         echo "Enrolled? <input type=\"checkbox\" name=\"isCOMM1116\" value=\"1\" id=\"isCOMP1116\">";
-=======
-        echo "Enrolled? <input type=\"checkbox\" name=\"COMM1116\" value=\"COMP1116\" id=\"isCOMP1116\">";
->>>>>>> f760def114136b9fb49540ed0f5c90cd2ecc1232
         $Dir = "./Courses";
         $DirOpen = opendir($Dir);
         while ($CurFile = readdir($DirOpen)) {
@@ -268,14 +224,9 @@ for ($i = 0; $i < count($courseArray); $i++) {
                 for ($i = 0; $i < sizeof($courseContent) / 2; ++$i) {
                     echo "<div>" . $weight[$i][0] . " " . "</div>" . "<input type = 'text' name='COMM1116" . $weight[$i][0] . "'>" . "<br>";
                     echo "<input type='hidden' name='COMM1116" . $weight[$i][0] . "value' value='" . $weight[$i][1] . "'>";
-<<<<<<< HEAD
 										
                 }
 				echo "<input type='hidden' name='COMM1116Credit' value='" . 4 . "'>";
-=======
-                }
-
->>>>>>> f760def114136b9fb49540ed0f5c90cd2ecc1232
                 echo "</div>";
             }
 
