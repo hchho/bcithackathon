@@ -1,4 +1,5 @@
 <?php
+    
     //Returns an array of all the marks as [assignment][weight]
     function retrieveMarks($courseName) {
         $fileName = $courseName . ".txt";
@@ -22,6 +23,21 @@
         }
     }
 
+    //Returns scores as an array for course name
+    function retrieveScores($courseName) {
+        $temp = array();
+        $i = 0;
+        foreach ($_POST as $key => $value) {
+            $end = substr($key, strlen($key) - 5, strlen($key) - 1);
+            if(substr($key, 0, 8) == $courseName && $end != "value") {
+                $temp[$i][0] = $key;
+                $temp[$i][1] = $value;
+                $i++;
+            }
+        }
+        return $temp;
+    }
+
     //Generates a div for each course
     function generateDiv($courseName) {
         $array = retrieveMarks($courseName);
@@ -34,7 +50,7 @@
 
             foreach (getCategoryArray($array) as $category) {
                 echo "<P>";
-                echo $category . " average is " . calcCategoryAvg($category, $array);
+                echo $category . " average is " . calcCategoryAvg($category, $array, retrieveScores($courseName));
                 echo "</P>";
             } 
             echo "<div class='courseMark' id='" . $courseName . "'>";
@@ -45,7 +61,7 @@
 
     //Returns course credit achieved using course name and final course mark
     function getCourseCredit($courseName, $courseMark) {
-        return $_GET[$courseName . 'credit'] * $courseMark;
+        return $_POST[$courseName . 'credit'] * $courseMark;
     }   
 
     function getTermGPA() {
@@ -54,7 +70,7 @@
         $courseArray = getCourses();
         foreach (getCourses() as $course) {
             $sum += getCourseCredit($course, getCourseMark($course));
-            $creditCount += $_GET[$course . 'credit'];
+            $creditCount += $_POST[$course . 'value'];
         }
         return $sum / $creditCount;
     }
@@ -92,7 +108,7 @@
     }
 
     //Returns the average for each category
-    function calcCategoryAvg($category, $marksArray) {
+    function calcCategoryAvg($category, $marksArray, $scoreArray) {
         $count = 0;
         $sum = 0;
         foreach ($marksArray as $entry) {
@@ -101,7 +117,23 @@
                 $sum += $entry[1];
             }
         }
-        return $sum / $count;
+        $weight = $sum / $count;
+        $count2 = 0;
+        $sum2 = 0;
+        foreach ($scoreArray as $entry2) {
+            if (strpos($entry2[0], $category) !== false) {
+                if ($entry2[1] > 0) {
+                    $count2 += 1;
+                    $sum2 += $entry2[1];
+                }
+            }
+        }
+        if ($count2 > 0) {
+        $score = $sum2 / $count2;
+        } else {
+            $score = 0;
+        }
+        return $score / $weight;
     }
 ?>
 
@@ -120,10 +152,7 @@
 <body>
 <h1 id="title">Results</h1>
 <?php
-    echo $_POST['COMP1111Final'];
-    echo $_POST['COMP1111Lab1'];
-    echo $_POST['COMP1111Lab2'];
-    echo $_POST['COMP1111Lab3'];
+    retrieveScores('COMP1111');
     echo "<P>Term GPA: ";
     echo getTermGPA();
     echo "</p>";

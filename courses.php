@@ -4,9 +4,7 @@
 $courseListFile = "./Courses/term1courses.txt";
 
 //split the courses into an array
-// $test = file($courseListFile);
 $courseArray = file($courseListFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-// $courseArray = array(explode(", ", $test[0]));
 //count how many courses are in the file
 $counter = 0;
 for ($i = 0; $i < count($courseArray); $i++) {
