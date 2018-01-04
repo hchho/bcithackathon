@@ -71,12 +71,19 @@ for ($i = 0; $i < count($courseArray); $i++) {
                     }
                 }
 
+<<<<<<< HEAD
           		echo "<div class='container'>";
+=======
+          		echo "<div class='bg-warning'>";
+>>>>>>> f760def114136b9fb49540ed0f5c90cd2ecc1232
 
                 for ($i = 0; $i < sizeof($courseContent) / 2; ++$i) {
                     echo "<div>" . $weight[$i][0] . " " . "</div>" . "<input type = 'text' name='COMM1111" . $weight[$i][0] . "'>" . "<br>";
                     echo "<input type='hidden' name='COMM1111" . $weight[$i][0] . "value' value='" . $weight[$i][1] . "'>";
+<<<<<<< HEAD
 					
+=======
+>>>>>>> f760def114136b9fb49540ed0f5c90cd2ecc1232
                 }
 				echo "<input type='hidden' name='COMM1111Credit' value='" . 4 . "'>";
                 echo "</div>";
@@ -108,12 +115,19 @@ for ($i = 0; $i < count($courseArray); $i++) {
                     }
                 }
 
+<<<<<<< HEAD
           		echo "<div class='container'>";
+=======
+          		echo "<div class='bg-warning'>";
+>>>>>>> f760def114136b9fb49540ed0f5c90cd2ecc1232
 
                 for ($i = 0; $i < sizeof($courseContent) / 2; ++$i) {
                     echo "<div>" . $weight[$i][0] . " " . "</div>" . "<input type = 'text' name='COMM1113" . $weight[$i][0] . "'>" . "<br>";
                     echo "<input type='hidden' name='COMM1113" . $weight[$i][0] . "value' value='" . $weight[$i][1] . "'>";
+<<<<<<< HEAD
 					
+=======
+>>>>>>> f760def114136b9fb49540ed0f5c90cd2ecc1232
                 }
 				echo "<input type='hidden' name='COMM1113Credit' value='" . 4 . "'>";
                 echo "</div>";
@@ -147,12 +161,19 @@ for ($i = 0; $i < count($courseArray); $i++) {
                     }
                 }
 
+<<<<<<< HEAD
           		echo "<div class='container'>";
+=======
+          		echo "<div class='bg-warning'>";
+>>>>>>> f760def114136b9fb49540ed0f5c90cd2ecc1232
 
                 for ($i = 0; $i < sizeof($courseContent) / 2; ++$i) {
                     echo "<div>" . $weight[$i][0] . " " . "</div>" . "<input type = 'text' name='COMM1510" . $weight[$i][0] . "'>" . "<br>";
                     echo "<input type='hidden' name='COMM1510" . $weight[$i][0] . "value' value='" . $weight[$i][1] . "'>";
+<<<<<<< HEAD
 					
+=======
+>>>>>>> f760def114136b9fb49540ed0f5c90cd2ecc1232
                 }
 				echo "<input type='hidden' name='COMM1510Credit' value='" . 7 . "'>";				
                 echo "</div>";
@@ -184,7 +205,11 @@ for ($i = 0; $i < count($courseArray); $i++) {
                     }
                 }
 
+<<<<<<< HEAD
 				echo "<div class='container'>";
+=======
+				echo "<div class='bg-warning'>";
+>>>>>>> f760def114136b9fb49540ed0f5c90cd2ecc1232
 
                 for ($i = 0; $i < sizeof($courseContent) / 2; ++$i) {
                     echo "<div>" . $weight[$i][0] . " " . "</div>" . "<input type = 'text' name='COMM1536" . $weight[$i][0] . "'>" . "<br>";
@@ -220,12 +245,19 @@ for ($i = 0; $i < count($courseArray); $i++) {
                     }
                 }
 				
+<<<<<<< HEAD
 				echo "<div class='container'>";
+=======
+				echo "<div class='bg-warning bg-color'>";
+>>>>>>> f760def114136b9fb49540ed0f5c90cd2ecc1232
 
                 for ($i = 0; $i < sizeof($courseContent) / 2; ++$i) {
                     echo "<div>" . $weight[$i][0] . " " . "</div>" . "<input type = 'text' name='COMM1116" . $weight[$i][0] . "'>" . "<br>";
                     echo "<input type='hidden' name='COMM1116" . $weight[$i][0] . "value' value='" . $weight[$i][1] . "'>";
+<<<<<<< HEAD
 										
+=======
+>>>>>>> f760def114136b9fb49540ed0f5c90cd2ecc1232
                 }
 				echo "<input type='hidden' name='COMM1116Credit' value='" . 4 . "'>";
                 echo "</div>";
