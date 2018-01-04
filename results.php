@@ -1,5 +1,5 @@
 <?php
-    //Returns an array of all the marks as [assignment][mark]
+    //Returns an array of all the marks as [assignment][weight]
     function retrieveMarks($courseName) {
         $fileName = $courseName . ".txt";
         $Dir = "./Courses";
