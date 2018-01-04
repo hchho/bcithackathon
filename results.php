@@ -39,7 +39,6 @@
             } 
             echo "<div class='courseMark' id='" . $courseName . "'>";
             echo "Final course mark: " . getCourseMark($courseName) . "</br>";
-            // echo "Course credit total: " . getCourseCredit($courseName, getCourseMark($courseName)) . "</br>";
             echo "</div>";
         echo "</div>";
     }
