@@ -75,7 +75,7 @@ for ($i = 0; $i < count($courseArray); $i++) {
 
                 for ($i = 0; $i < sizeof($courseContent) / 2; ++$i) {
                     echo $weight[$i][0] . " " . "<input type = 'text' name='COMP1111" . $weight[$i][0] . "'>" . "<br>";
-                    echo "<input type='hidden' name='COMP1111" . $weight[$i][0] . "' value='" . $weight[$i][1] . "'>";
+                    echo "<input type='hidden' name='COMP1111" . $weight[$i][0] . "value' value='" . $weight[$i][1] . "'>";
                 }
 
                 echo "</div>";
@@ -111,7 +111,7 @@ for ($i = 0; $i < count($courseArray); $i++) {
 
                 for ($i = 0; $i < sizeof($courseContent) / 2; ++$i) {
                     echo $weight[$i][0] . " " . "<input type = 'text' name='COMP1113" . $weight[$i][0] . "'>" . "<br>";
-                    echo "<input type='hidden' name='COMP1113" . $weight[$i][0] . "' value='" . $weight[$i][1] . "'>";
+                    echo "<input type='hidden' name='COMP1113" . $weight[$i][0] . "value' value='" . $weight[$i][1] . "'>";
                 }
 
                 echo "</div>";
@@ -149,7 +149,7 @@ for ($i = 0; $i < count($courseArray); $i++) {
 
                 for ($i = 0; $i < sizeof($courseContent) / 2; ++$i) {
                     echo $weight[$i][0] . " " . "<input type = 'text' name='comp1510" . $weight[$i][0] . "'>" . "<br>";
-                    echo "<input type='hidden' name='comp1510" . $weight[$i][0] . "' value='" . $weight[$i][1] . "'>";
+                    echo "<input type='hidden' name='comp1510" . $weight[$i][0] . "value' value='" . $weight[$i][1] . "'>";
                 }
 
                 echo "</div>";
@@ -185,7 +185,7 @@ for ($i = 0; $i < count($courseArray); $i++) {
 
                 for ($i = 0; $i < sizeof($courseContent) / 2; ++$i) {
                     echo $weight[$i][0] . " " . "<input type = 'text' name='COMP1536" . $weight[$i][0] . "'>" . "<br>";
-                    echo "<input type='hidden' name='COMP1536" . $weight[$i][0] . "' value='" . $weight[$i][1] . "'>";
+                    echo "<input type='hidden' name='COMP1536" . $weight[$i][0] . "value' value='" . $weight[$i][1] . "'>";
                 }
 
                 echo "</div>";
