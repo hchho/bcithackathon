@@ -38,7 +38,7 @@
                 }
             // }
         }
-        print_r($tempWeight);
+        // print_r($tempWeight);
         return $tempWeight;
     }
 
@@ -109,7 +109,8 @@
         }
         $final = 0;
         for ($i = 0; $i < sizeof($temp); $i++) {
-            $elem = $temp[$i] / 100 * getWeight($courseName)[$i];
+            // $elem = $temp[$i] / 100 * getWeight($courseName)[$i];
+            $elem = $temp[$i];  
             $final += $elem;
         }
         return $final;
