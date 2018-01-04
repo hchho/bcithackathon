@@ -1,1 +1,1 @@
-Final, 20, Lab1, 6, Lab2, 6, Lab3, 6, Lab4, 6, Lab5, 6, Lab6, 6, Quiz1, 2, Quiz2, 2, Quiz3, 2, Quiz4, 2, Quiz5, 2, Quiz6, 2, Quiz7, 2, Quiz8, 2, Quiz9, 2, Quiz10, 2
+Final, 20, Lab1, 6, Lab2, 6, Lab3, 6, Lab4, 6, Lab5, 6, Lab6, 6, Lab7, 6, Lab8, 6, Lab9, 6, Lab10, 6, Quiz1, 2, Quiz2, 2, Quiz3, 2, Quiz4, 2, Quiz5, 2, Quiz6, 2, Quiz7, 2, Quiz8, 2, Quiz9, 2, Quiz10, 2
