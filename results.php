@@ -120,13 +120,17 @@
 <body>
 <h1 id="title">Results</h1>
 <?php
-    echo "<P>";
+    echo $_POST['COMP1111Final'];
+    echo $_POST['COMP1111Lab1'];
+    echo $_POST['COMP1111Lab2'];
+    echo $_POST['COMP1111Lab3'];
+    echo "<P>Term GPA: ";
     echo getTermGPA();
     echo "</p>";
     //Generates the divs for all courses that were selected
     for ($j = 0; $j < count(getCourses()); $j++) {
         $temp = getCourses()[$j];
-        if ($_GET[$temp . 'credit'] > 0) {
+        if ($_POST['is'.$temp] > 0) {
             generateDiv(getCourses()[$j]);
         };    
     }
