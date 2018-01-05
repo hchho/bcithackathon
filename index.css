@@ -5,6 +5,8 @@
 /*tab*/
 body {
     font-family: Arial;
+    height: 100%;
+    padding-bottom: 30px;
 }
 
 /* Style the tab */
@@ -25,6 +27,8 @@ body {
     padding: 20px 22px;
     transition: 0.3s;
     font-size: 17px;
+    display: block;
+    margin: auto;
 }
 
 /* Change background color of buttons on hover */
@@ -53,5 +57,11 @@ body {
     background-color: #8881ff;
     color: #ff0038;
     text-align: center;
+    height: 30px;
+}
 
+div.grades {
+    width: 300px;
+    border: 1px solid gray;
+    margin: 20px;
 }

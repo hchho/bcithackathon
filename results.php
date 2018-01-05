@@ -60,7 +60,7 @@
     //Generates a div for each course
     function generateDiv($courseName) {
         $array = retrieveMarks($courseName);
-        echo "<div class='grades' id='" . $courseName . "'>";
+        echo "<div class='grades col-sm-6' id='" . $courseName . "'>";
         echo "<h3>" . $courseName . "</h3>";
             foreach (getCategoryArray($array) as $category) {
                 echo "<P>";
@@ -153,15 +153,14 @@
 
 <html>
 <head>
-<style>
-    h1#title {
-        text-align: center;
-    }
-    .grades {
-        background-color: red;
-        color: white;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="./index.js"></script>
 </head> 
 <body>
 <h1 id="title">Results</h1>

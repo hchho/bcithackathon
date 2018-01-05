@@ -32,7 +32,7 @@ for ($i = 0; $i < count($courseArray); $i++) {
 </head>
 
 <body>
-<div class="row">
+<div class="container-fluid">
     <!-- Navigation -->
     <div class="tab">
         <?php
@@ -43,11 +43,14 @@ for ($i = 0; $i < count($courseArray); $i++) {
         }
         ?>
     </div>
+    <form action='results.php' method='post'>
     <?php
     
-    if (isset($_POST["TERM1"])) {
+    if (!isset($_POST["TERM1"])) {
+        header('location: index.php');
+    } else {
         
-        echo "<form action='results.php' method='post'>";
+    
         foreach ($courseArray as $course) {
             echo "<div id='" . $course . "' class=\"tabcontent\">";
             echo "<h3>". $course . "</h3>";
@@ -94,15 +97,13 @@ for ($i = 0; $i < count($courseArray); $i++) {
             nemo quaerat saepe tenetur!</p>
         </div>";
     }
-
-
-    echo "</div>";
-
-
-    echo "<input type=\"submit\">";
-
-    echo "</form>";
+        
     ?>
+    </div>
+    <div class="footer">
+        <input type="submit"/>
+        </form>       
+    </div>
 </body>
 
 </html>
