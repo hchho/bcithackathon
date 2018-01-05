@@ -1,1 +1,0 @@
-Quiz1, 2.5, Quiz2, 2.5, Take Home Assignment, 10, Midterm, 25, Take Home Report, 10, Presentation, 15, Final, 25, Participation, 10
