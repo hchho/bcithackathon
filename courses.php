@@ -54,7 +54,7 @@ for ($i = 0; $i < count($courseArray); $i++) {
         foreach ($courseArray as $course) {
             echo "<div id='" . $course . "' class=\"tabcontent\">";
             echo "<h3>". $course . "</h3>";
-            echo "Enrolled? <input type=\"checkbox\" name=\"is".$course."\" value=\"1\" id=\"is".$course."\">";
+            echo "Enrolled? <input type=\"checkbox\" name=\"is".$course."\" value=\"1\" id=\"is".$course."\"/>";
             $Dir = "./Courses";
             $DirOpen = opendir($Dir);
             while ($CurFile = readdir($DirOpen)) {        
@@ -75,10 +75,10 @@ for ($i = 0; $i < count($courseArray); $i++) {
                 }
             }
 
-            echo "<div class='container'>";
+            echo "<div class='assignment row'>";
 
             for ($i = 0; $i < sizeof($courseContent) / 2; ++$i) {
-                echo "<div>" . $weight[$i][0] . " " . "</div>" . "<input type = 'text' name='". $course . $weight[$i][0] . "'>" . "<br>";
+                echo "<label for='".$weight[$i][0]."' class='col-sm-2'>" . $weight[$i][0] . " " . "</label>" . "<input type = 'text' name='". $course . $weight[$i][0] . "' class='col-sm-2'>";
                 echo "<input type='hidden' name='".$course . $weight[$i][0] . "value' value='" . $weight[$i][1] . "'>";
 
             }
