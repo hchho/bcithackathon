@@ -80,7 +80,7 @@
 
     function getTermGPA() {
         $sum = 0;
-        $creditCount = 0;
+        $creditCount = 1;
         $courseArray = getCourses();
         foreach (getCourses() as $course) {
             if($_POST['is'.$course] > 0) {
